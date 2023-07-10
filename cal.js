@@ -1,0 +1,37 @@
+// function to generate multiplication tables exercises
+function generateExercises() {
+    // empty array to hold the exercises
+    const exercises = [];
+    // loop through the numbers 1 to 12
+    for (let i = 1; i <= 12; i++) {
+      // loop through the numbers 1 to 12
+      for (let j = 1; j <= 12; j++) {
+        // create a new exercise string
+        const exercise = `${i} x ${j} = ?`;
+        // add the exercise string to the array
+        exercises.push(exercise);
+      }
+    }
+    // shuffle the exercises
+    shuffle(exercises);
+    // loop through the shuffled exercises
+    for (let i = 0; i < exercises.length; i++) {
+      // create a new div element to hold the exercise
+      const exerciseDiv = document.createElement("div");
+      exerciseDiv.setAttribute("class", "exercise");
+      // set the text content of the exercise div to the exercise
+      exerciseDiv.textContent = exercises[i];
+      // add the exercise div to the body of the document
+      document.body.appendChild(exerciseDiv);
+    }
+  }
+  
+  // function to shuffle an array
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+  
